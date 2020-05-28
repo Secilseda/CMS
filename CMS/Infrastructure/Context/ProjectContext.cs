@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CMS.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,8 @@ namespace CMS.Infrastructure.Context
 {
 	public class ProjectContext:DbContext
 	{
-		public ProjectContext(DbContextOptions<ProjectContext>options):base(options)
-		{
-
-		}
+		public ProjectContext(DbContextOptions<ProjectContext> options) : base(options){}
+	
+		public DbSet<Page>Pages { get; set; }
 	}
 }
