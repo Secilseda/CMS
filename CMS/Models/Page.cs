@@ -17,6 +17,6 @@ namespace CMS.Models
 		[MinLength(4, ErrorMessage = "Minimum Lenght is 4")]
 		public string Content { get; set; }
 
-		public string Sorting { get; set; }
+		public int Sorting { get; set; }
 	}
 }
