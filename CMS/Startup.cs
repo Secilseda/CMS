@@ -50,7 +50,7 @@ namespace CMS
 			{
 				endpoints.MapControllerRoute(//eklediðimiz areasa dair rooting'imiz.
 					   name: "areas",
-					   pattern: "{areas:exists}/{controller=Home}/{action=Index}/{id?}");
+					   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 				endpoints.MapControllerRoute(
 					name: "default",
