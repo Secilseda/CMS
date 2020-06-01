@@ -19,3 +19,4 @@ Project Dökümantasyonu.
 	Lütfen Startup.cs altýndaki "Configure"metodunu kontrol edin.)
 	8.3. Global alandaki Views altýnda bulunan "Shared"+"ViewImports"+"ViewStart"yapýlarýný kopyalayýp Admin area altýndaki Views  içerisinde yapýþtýrdýk.(Not: viewImports.cshtml dosyasýna ihtiyacýmýz olan, yada projede sýklýkla kullanacaðýmýz yollarý ekleyebiliriz.Böylelikle model eklediðimizde yolunu klasik .Net 'teki gibi uzun uzundayý yazmýyoruz.)
 	8.4.Page kontroller eklendi.
+	8.5. Page CRUD operasyonlarý eklendi.

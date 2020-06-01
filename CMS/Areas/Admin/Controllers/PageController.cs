@@ -42,5 +42,84 @@ namespace CMS.Areas.Admin.Controllers
             //return View(await _context.Pages.OrderBy(x => x.Sorting).ToListAsync());
             //IEnumerable ve IQueryable arasındaki en büyük fark IEnumerable tipinin datayı önce belleğe atıp ardından koşulları bellekteki dataya uygulamasıdır. IQueryable tipinde ise sorgular direkt olarak sql servere yapılır.
         }
+        public async Task<IActionResult>Details(int id)
+        {
+            Page page = await _context.Pages.FirstOrDefaultAsync(x => x.Id == id);
+            if (page==null)
+            {
+                return NotFound();
+            }
+            return View(page);
+        }
+        public IActionResult Create() => View();//sayfayı getirecek klasik mvc mantığı.
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Page page)
+        {
+            if (ModelState.IsValid)
+            {
+                page.Slug = page.Title.ToLower().Replace(" ","-");//gelen page'e slug ürettik.boşluk gördüğün yerlere - ekle.
+                page.Sorting = 100;
+
+                var slug = await _context.Pages.FirstOrDefaultAsync(x => x.Slug == page.Slug);//db'de varsa slug doldu
+                //Await=bekletme anlamında.
+                if (slug!=null)//yoksa
+                {
+                    ModelState.AddModelError("", "The page already exists..!");
+                    return View(page);
+
+                }
+                _context.Add(page);
+                await _context.SaveChangesAsync();//sürekli db'ye göndermek doğru değil.
+                TempData["Success"] = "The page has been added..!";
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["Error"] = "The page hasn't been added..!";
+                return View(page);
+            }
+        }
+        public async Task<IActionResult>Edit(int id)//create gibi yakalama operasyonu yapıcaz
+        {
+            Page page = await _context.Pages.FindAsync(id);
+            if (page==null)
+            {
+                NotFound();
+            }
+            return View(page);//yakaladığım page'i dön
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult>Edit(Page page)
+        {
+            if (ModelState.IsValid)
+            {
+                //home ise update edilmeyecek.
+                page.Slug = page.Id == 1 ? "home" : page.Title.ToLower().Replace(" ", "-");//if sorgusu
+                //slug ıd'si 1 ya da home ise demek.
+                //İnsted if (?)
+                var slug = await _context.Pages.Where(x => x.Id != page.Id).FirstOrDefaultAsync(x => x.Slug == page.Slug);//doldurduk.
+
+                if (slug !=null)//içiini doldurduğun slug'in içi nullsa
+                {
+                    ModelState.AddModelError("", "The home page can't edit..!");
+                    return View(page);
+                }
+
+                _context.Update(page);
+                await _context.SaveChangesAsync();
+                TempData["Succes"] = "The page has been edit..!";
+                return RedirectToAction("Edit", new { id = page.Id });
+            }
+            else
+            {
+                TempData["Error"] = "The page hasn't been edit..!";
+                return View(page);
+            }
+        }
     }
 }
