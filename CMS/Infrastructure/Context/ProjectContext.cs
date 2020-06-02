@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace CMS.Infrastructure.Context
 {
-	public class ProjectContext:DbContext
+	public class ProjectContext : DbContext
 	{
-		public ProjectContext(DbContextOptions<ProjectContext> options) : base(options){}
-	
-		public DbSet<Page>Pages { get; set; }
+		public ProjectContext(DbContextOptions<ProjectContext> options) : base(options) { }
+
+		public DbSet<Page> Pages { get; set; }
+		public DbSet<Category>Categories{get; set;}
 	}
 }

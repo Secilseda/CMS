@@ -156,7 +156,8 @@ namespace CMS.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();//async kaydet beklet.
                 count++;//countu arttır.
             }
-            return Ok();//index'ten 
+            return Ok();
+            //index'ten çalıştırdığımızda satırların yerini değiştirip sql'e bakıldığında index numaraları değişecektir.
         }
 
     }
