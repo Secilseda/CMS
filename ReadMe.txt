@@ -24,3 +24,9 @@ Project Dökümantasyonu.
 		8.6.1. Client side library üzerinden CK editör yüklenir.
 		8.6.2. 
 		8.6.3. Ckeditör.js _Layout page eklenir.
+	8.7. Dinamic sorting iþlemi
+		8.7.1. Client side library'den jqueryui.js eklenir.
+		8.7.2. _LayoutPage page jqueryui.js eklenir.
+		8.7.3. Index sayfasýna script yazýlýr. HTML elementleri uygun þekilde yakalanýr.
+		(Projenin diðer index sayfalarýnda, örneðin category index vb. yerlerde kullanmak istersek, harici bir js file'sine yazýp dýþarýya alabiliriz. Sonra ihtiyaç olan sayfalarda bu js file eklenir.)
+		8.7.4. Page controller içerisinde ReOrder action'u yazýlýr.

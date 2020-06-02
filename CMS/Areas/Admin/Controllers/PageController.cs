@@ -144,5 +144,20 @@ namespace CMS.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");//başarılıda olsa başarısızda olsa ındex dönsün.
         }
+        [HttpPost]
+        public async Task<IActionResult> ReOrder(int[] id)
+        {
+            int count = 1;
+            foreach (var pageId in id)
+            {
+                Page page = await _context.Pages.FindAsync(pageId);//o andaki pageıd bul 
+                page.Sorting = count;//içeisine bir yap yani count
+                _context.Update(page);//güncelle page'i
+                await _context.SaveChangesAsync();//async kaydet beklet.
+                count++;//countu arttır.
+            }
+            return Ok();//index'ten 
+        }
+
     }
 }
