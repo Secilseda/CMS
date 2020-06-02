@@ -131,11 +131,11 @@ namespace CMS.Areas.Admin.Controllers
             }
             else
             {
-                //1.yol
+                //1.yol=database'silmeme.
                 //page.Status = Status.Passive;
                 //page.DeleteDate = DateTime.Now;
 
-                //2. yol
+                //2. yol=database'den silme. Biz sildik database'den
                 _context.Pages.Remove(page);//bu bir opsiyon gelen 
 
                 //her yolun uğraması gereken yer.

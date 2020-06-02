@@ -25,7 +25,7 @@
 
 						<div class="form-group">
 							<label asp-for="Content" class="control-label"></label>
-							<input asp-for="Content" class="form-control" />
+							<textarea asp-for="Content" class="form-control"></textarea>
 							<span asp-validation-for="Content" class="text-danger"></span>
 						</div>
 
@@ -42,7 +42,10 @@
 		</div>
 	</div>
 </div>
-
+<!--yorum satırlaarına kalın yazı vs ekleme.-->
 @section Scripts {
 	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	<script>
+		CKEDITOR.replace("Content");
+	</script>
 }

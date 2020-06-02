@@ -18,5 +18,9 @@ Project Dökümantasyonu.
 	8.2. Admin are roting iþlemi gerçekleþtirilir.(Not: Scaffolding ile gelen readme'deki routing Asp .Net Core 2.1 aittit. Asp .Net Core 3.1'de end point mantýðýna geçilmiþtir.
 	Lütfen Startup.cs altýndaki "Configure"metodunu kontrol edin.)
 	8.3. Global alandaki Views altýnda bulunan "Shared"+"ViewImports"+"ViewStart"yapýlarýný kopyalayýp Admin area altýndaki Views  içerisinde yapýþtýrdýk.(Not: viewImports.cshtml dosyasýna ihtiyacýmýz olan, yada projede sýklýkla kullanacaðýmýz yollarý ekleyebiliriz.Böylelikle model eklediðimizde yolunu klasik .Net 'teki gibi uzun uzundayý yazmýyoruz.)
-	8.4.Page kontroller eklendi.
-	8.5. Page CRUD operasyonlarý eklendi.
+	8.4. Page kontroller eklendi.
+	8.5. Page CRUD operasyonlarý halledildi.(Delete Operasyonu için yazýldý.)
+	8.6. CK editör implemtation yapýldý.
+		8.6.1. Client side library üzerinden CK editör yüklenir.
+		8.6.2. 
+		8.6.3. Ckeditör.js _Layout page eklenir.
