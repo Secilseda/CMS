@@ -121,5 +121,28 @@ namespace CMS.Areas.Admin.Controllers
                 return View(page);
             }
         }
+        public async Task<IActionResult> Delete(int id)
+        {
+            Page page = await _context.Pages.FindAsync(id);
+            if (page==null)
+            {
+                TempData["Error"]="The page does not exist..!";
+                return View(page);
+            }
+            else
+            {
+                //1.yol
+                //page.Status = Status.Passive;
+                //page.DeleteDate = DateTime.Now;
+
+                //2. yol
+                _context.Pages.Remove(page);//bu bir opsiyon gelen 
+
+                //her yolun uğraması gereken yer.
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "The page has been deleted..!";
+            }
+            return RedirectToAction("Index");//başarılıda olsa başarısızda olsa ındex dönsün.
+        }
     }
 }
