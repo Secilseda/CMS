@@ -39,8 +39,8 @@ namespace CMS.Migrations
                     b.Property<string>("Slug")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Sorting")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Sorting")
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");

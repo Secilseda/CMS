@@ -30,3 +30,5 @@ Project Dökümantasyonu.
 		8.7.3. Index sayfasýna script yazýlýr. HTML elementleri uygun þekilde yakalanýr.
 		(Projenin diðer index sayfalarýnda, örneðin category index vb. yerlerde kullanmak istersek, harici bir js file'sine yazýp dýþarýya alabiliriz. Sonra ihtiyaç olan sayfalarda bu js file eklenir.)
 		8.7.4. Page controller içerisinde ReOrder action'u yazýlýr.
+	8.8. Category model oluþturulur ve db'ye göç ettirilir.
+	8.9.Category controller açýlýr ve crud operasyonlarý yürütülür.

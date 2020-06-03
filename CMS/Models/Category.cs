@@ -13,6 +13,6 @@ namespace CMS.Models
 		[RegularExpression (@"^[a-zA-Z-]+$",ErrorMessage ="Only letters are allowed..!")]
 		public string Name { get; set; }
 		public string Slug { get; set; }
-		public string Sorting { get; set; }
+		public int Sorting { get; set; }
 	}
 }
