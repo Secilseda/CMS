@@ -108,6 +108,7 @@ namespace CMS.Areas.Admin.Controllers
         public async Task<IActionResult>Reorder(int[] id)
         {
             int count = 1;
+
             foreach (var categoryId in id)
             {
                 Category category = await _context.Categories.FindAsync(categoryId);

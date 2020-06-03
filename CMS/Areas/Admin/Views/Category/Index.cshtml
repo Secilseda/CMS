@@ -41,15 +41,18 @@
 </div>
 @section Scripts {
 	<script>
-    $("table#categories tbody").sortable({
-        items: "tr:not(.home)",
-        placeholder: "ui-state-highlight",
-        update: function () {
-            let ids = $("table#pages tbody").sortable("serialize");
-            let url = "/admin/category/reorder";
+		$("table#categories tbody").sortable({
+			items: "tr:not(.home)",
+			placeholder: "ui-state-highlight",
+			update: function () {
+				let ids = $("table#categories tbody").sortable("serialize");
+				let url = "/admin/category/reorder";
 
-            $.post(url, ids, function () { })
-		}
-    });
+				$.post(url, ids, function () { })
+			}
+		});
 	</script>
 }
+
+
+
