@@ -48,6 +48,11 @@ namespace CMS
 
 			app.UseEndpoints(endpoints =>
 			{
+			endpoints.MapControllerRoute(
+				"page",
+				"{slug?}",
+				defaults: new { controller = "Page", action = "Page" });
+
 				endpoints.MapControllerRoute(//eklediðimiz areasa dair rooting'imiz.
 					   name: "areas",
 					   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
