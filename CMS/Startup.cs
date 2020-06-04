@@ -51,7 +51,12 @@ namespace CMS
 			endpoints.MapControllerRoute(
 				"page",
 				"{slug?}",
-				defaults: new { controller = "Page", action = "Page" });
+				defaults: new { controller = "Page", action = "Page" });//bir þey vermezsek bu çalýþacak.
+
+				endpoints.MapControllerRoute(
+					   "product",
+					   "product/{categorySlug}",
+					   defaults: new { controller = "Product", action = "ProductsByCategory" });
 
 				endpoints.MapControllerRoute(//eklediðimiz areasa dair rooting'imiz.
 					   name: "areas",
