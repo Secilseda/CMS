@@ -32,3 +32,4 @@ Project Dökümantasyonu.
 		8.7.4. Page controller içerisinde ReOrder action'u yazýlýr.
 	8.8. Category model oluþturulur ve db'ye göç ettirilir.
 	8.9.Category controller açýlýr ve crud operasyonlarý yürütülür.
+	8.10. Product controller açýlýr ve crud operasyonlarý yürütülür.
