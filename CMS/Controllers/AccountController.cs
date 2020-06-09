@@ -15,10 +15,15 @@ namespace CMS.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser>signInManager)
+        private IPasswordHasher<AppUser> _passwordHasher;
+
+        public AccountController(UserManager<AppUser> userManager,
+            SignInManager<AppUser>signInManager,
+            IPasswordHasher<AppUser> passwordHasher)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
+            this._passwordHasher = passwordHasher;
         }
 
         [AllowAnonymous]//atlatmış olucaz.
@@ -97,7 +102,27 @@ namespace CMS.Controllers
         public async Task<IActionResult>Edit()
         {
             AppUser appUser = await _userManager.FindByNameAsync(User.Identity.Name);
-
+            UserEdit userEdit = new UserEdit(appUser);
+            return View(userEdit);
+        }
+        public async Task<IActionResult>Edit(UserEdit user)
+        {
+            AppUser appUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (ModelState.IsValid)
+            {
+                appUser.Email = user.Email;
+                if (user.Password!=null)
+                {
+                    appUser.PasswordHash = _passwordHasher.HashPassword(appUser,user.Password);
+                }
+                IdentityResult result = await _userManager.UpdateAsync(appUser);
+                if (result.Succeeded)
+                {
+                    TempData["Success"] = "Your information has been edited..!";
+                }
+                
+            }
+            return View(user);
         }
     }
 }

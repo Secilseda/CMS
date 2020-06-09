@@ -46,7 +46,6 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <partial name="_NotificationPartial" />
             <div class="row">
                 <div class="col-md-3">
                     @await Component.InvokeAsync("Category")
@@ -56,6 +55,7 @@
 					</div>
                 </div>
 				<div class="col-sm-9">
+					<partial name="_NotificationPartial" />
 					@RenderBody()
 				</div>
             </div>

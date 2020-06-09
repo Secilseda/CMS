@@ -20,12 +20,6 @@ namespace CMS.Models
 		[DataType(DataType.Password),Required,MinLength(4,ErrorMessage ="Minimum lenght is 4")]//enum çağırdık password olduğunu belirttik.
 		public string Password { get; set; }
 
-		public User() { }
-		public User(AppUser appUser)//AppUser'ın kendisi gelecek.
-		{
-			UserName = appUser.UserName;
-			Email = appUser.Email;
-			Password = appUser.PasswordHash;
-		}
+		
 	}
 }
