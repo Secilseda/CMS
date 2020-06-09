@@ -1,4 +1,5 @@
 ﻿using CMS.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Infrastructure.Context
 {
-	public class ProjectContext : DbContext
+	public class ProjectContext :IdentityDbContext<AppUser>
 	{
 		public ProjectContext(DbContextOptions<ProjectContext> options) : base(options) { }
 

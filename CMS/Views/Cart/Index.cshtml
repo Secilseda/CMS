@@ -1,0 +1,62 @@
+﻿@model CartViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@if (Model.CartItems.Count > 0)
+{
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Cart Overview</h4>
+                </div>
+                <div class="card-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Quntity</th>
+								<th></th>
+								<th>Price</th>
+								<th>Total</th>
+                                <th>GrandTotal</th>
+							</tr>
+						</thead>
+						<tbody>
+                            @foreach (var item in Model.CartItems)
+							{
+                                <tr>
+                                    <td>@item.ProductName</td>
+                                    <td>
+                                        <img src="~/media/products/@item.Image"width="50"height="50" />
+                                    </td>
+                                    <td>@item.Quantity</td>
+                                    <td>
+                                        <a asp-action="Add"asp-route-id="@item.ProductId"class="btn btn-success btn-sm">+</a>
+                                        <a asp-action="Decrease"asp-route-id="@item.ProductId"class="btn btn-warning btn-sm">-</a>
+                                        <a asp-action="Remove"asp-route-id="@item.ProductId"class="btn btn-danger btn-sm">Remove</a>
+                                    </td>
+                                    <td>@item.Price.ToString("C2")</td>
+                                    <td>@Model.CartItems.Where(x=> x.ProductId==item.ProductId).Sum(x=> x.Quantity* x.Price).ToString("C2")</td>
+                                </tr>
+							}
+                            
+						</tbody>
+					</table>
+                </div>
+				<div class="card-footer">
+					<div class="card-text float-right">
+						Grand Total:@Model.GrandTotal.ToString("C2")
+                        <a asp-action="Clear"class="btn btn-danger btn-sm">Clear the Cart</a>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+}
+else
+{ 
+    <h5 class="display-4 text-center">Your cart is empty..!</h5>
+}

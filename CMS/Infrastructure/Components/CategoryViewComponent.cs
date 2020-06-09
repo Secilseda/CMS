@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Infrastructure.Components
 {
-	public class CategoryViewComponent:ViewComponent
+	public class CategoryViewComponent:ViewComponent//ortak viewleri kullanmamızı sağlar partial view'in yerine gelmiştir.
 	{
 		private readonly ProjectContext _context;
 		public CategoryViewComponent(ProjectContext context)

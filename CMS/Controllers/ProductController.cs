@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using CMS.Infrastructure.Context;
 using CMS.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly ProjectContext _context;
