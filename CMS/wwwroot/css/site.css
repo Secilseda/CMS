@@ -95,7 +95,7 @@ div.ajaxbg{
 }
 div.ajaxbg>img{
     position:absolute;
-    top:25%;
+    top:20%;
     left:50%;
     transform:translateX(-50%);
     z-index:2;
@@ -104,4 +104,10 @@ div.ajaxbg>p{
     position:absolute;
     top:50%;
     z-index:2;
+}
+li.nav.item.logout{
+    position:absolute;
+    top:10%;
+    right:10%;
+    list-style:none
 }

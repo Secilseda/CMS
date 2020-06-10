@@ -34,7 +34,7 @@ namespace CMS.Controllers
 
 
         [HttpPost]
-        [AllowAnonymous]//atlatmış olucaz.
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(User user)
         {

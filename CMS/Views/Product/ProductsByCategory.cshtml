@@ -14,12 +14,13 @@
 					<img src="~/media/products/@item.Image" class="card-img-top" alt="@item.Name">
 				</div>
 				<div class="card-body">
-					<div class="ajaxbg d-done">
+
+					@*<div class="ajaxbg d-done">
 						<img src="~/images/Spinner-1s-200px.gif" />
 						<p class="lead alert-success text-center d-done">
 							The product has been added..!
 						</p>
-					</div>
+					</div>*@
 
 					<h5 class="card-title">@item.Name</h5>
 					<p class="card-text">@Html.Raw(item.Description)</p>
@@ -35,7 +36,7 @@
 
 </div>
 
-@section Scripts{ 
+@*@section Scripts{ 
 <script>
 	$(function () {
 
@@ -62,4 +63,4 @@
 		});
 	});
 </script>
-}
+}*@
