@@ -27,11 +27,12 @@ namespace CMS.Areas.Admin.Controllers
         
        [HttpPost]
        [ValidateAntiForgeryToken]
+        //“ValidateAntiForgeryToken” kısaca . NET platformunun dış saldırılara karşı aldığı, bilgi isteyen kişi gerçekten sen misin diye kontrol eden önlemidir. Dizayn ettiğimiz siteye kullanıcılardan gelen isteklere (request), isteklerin doğruluğunu “Token”ler aracılığıyla anlayıp ona göre cevap verir.
         public async Task<IActionResult> Create(Category category)
         {
             if (ModelState.IsValid)
-            {
-               category.Slug = category.Name.ToLower().Replace(" ", "-");
+            {//WEB sayfalarının URL adreslerinde yazının başlık ismi geçiyor ise buna slug denilmektedir. Siteye eklenen markanın karşılığı olarak gelen uzantıdır.
+                category.Slug = category.Name.ToLower().Replace(" ", "-");
                 category.Sorting = 100;
                 var slug = await _context.Categories.FirstOrDefaultAsync(x => x.Slug == category.Slug);
                 if (slug !=null)

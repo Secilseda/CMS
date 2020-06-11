@@ -52,7 +52,7 @@ namespace CMS.Areas.Admin.Controllers
                 {
                     //Dir dizin yapısıdır.
                     string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath,"media/products");
-
+                    // Guid, benzersiz değerler oluşturmak için kullanılmaktadır. Örnek olarak ortak bir alana birden fazla kullanıcının dosya kaydetmesini gösterebiliriz. ... Guid yapısı ise bize benzersiz değerler üretir ve böyle bir durumun oluşmamasını sağlar.
                     //her bir resim yükleme işlemi esnasında 
                     imageName = Guid.NewGuid().ToString() + "_" + product.ImageUpload.FileName;
                     string filePath = Path.Combine(uploadDir, imageName);

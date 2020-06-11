@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace CMS.Infrastructure.Helpers
 {
+	//target belirlememiz gerekiyor.
+	//o target için konuşucağımız bir şey yazmamız gerekir.
+	//target vasıtasıyla view deki ındex'e çöktü"".
 	[HtmlTargetElement("td",Attributes="user-role")]
-	public class RoleTagHelper:TagHelper
+	public class RoleTagHelper: TagHelper//TagHelper sağladı alttaki metodu
 	{
 		private readonly RoleManager<IdentityRole> _roleManager;
 		private readonly UserManager<AppUser> _userManager;
@@ -20,7 +23,7 @@ namespace CMS.Infrastructure.Helpers
 		}
 
 		[HtmlAttributeName("user-role")]
-		public string RoleId { get; set; }
+		public string RoleId { get; set; }//özellik verdik.
 
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
